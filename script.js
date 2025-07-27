@@ -9,28 +9,6 @@ let points = [
 
 let draggingPoint = null;
 
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw triangle
-    ctx.beginPath();
-    ctx.moveTo(points[0].x, points[0].y);
-    ctx.lineTo(points[1].x, points[1].y);
-    ctx.lineTo(points[2].x, points[2].y);
-    ctx.closePath();
-    ctx.strokeStyle = 'blue';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    // Draw points
-    points.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 10, 0, 2 * Math.PI);
-        ctx.fillStyle = 'red';
-        ctx.fill();
-    });
-}
-
 function getAltitude(p1, p2, p3) {
     const slope = (p2.y - p1.y) / (p2.x - p1.x);
     const perpendicularSlope = -1 / slope;
